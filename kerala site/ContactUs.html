@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <link rel="stylesheet" href="css/footer.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="CSS/home.css">
+    <title>Contact Us</title>
+    <script>
+        $(document).ready(function() {
+            $("#footer-placeholder").load("Footer.html")
+        })
+    </script>
+</head>
+<body>
+    <div class="menubar">
+        <div class="menulist">
+            <div class="restname">Delicious Bites</div>
+            <div>
+                <ul>
+                    <li><a href="Home.html">Home</a></li>
+                    <li><a href="Menu.html">Menu</a></li>
+                    <li><a href="Aboutus.html">About Us</a></li>
+                    <li><a href="ContactUs.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="contactus">
+        <div class="contactusdiv">
+            <div class="sendmsg">
+                <div class="sendmsgform">
+                    <form action="">
+                        <label for="fname">First Name</label>
+                        <input type="text" id="fname" name="firstname" placeholder="Your name.." required>
+                        <label for="lname">Last Name</label>
+                        <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Your Email Address.." required>
+                        <label for="phonenumber">Phone Number</label>
+                        <input type="number" id="phonenumber" name="phonenumber" placeholder="Your Contact Number" min="1" max="10" required>
+                        <label for="message">Message</label>
+                        <textarea id="msg" required></textarea>
+                        <input type="submit" value="Send Message" onclick="Submit()">
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="footerdiv">
+        <div id="footer-placeholder"></div>
+    </div>
+    <script>
+        let Submit=()=>{
+            var fname=document.getElementById("fname").value;
+            var lname=document.getElementById("lname").value;
+            var email=document.getElementById("email").value;
+            var phneno=document.getElementById("phonenumber").value;
+            var msg=document.getElementById("msg").value;
+
+            if(fname=="" && lname==""){
+                alert("Please enter First Name");
+                return false;
+            }
+            const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            const isvalid=emailPattern.test(email)
+            if(isvalid==false){
+                alert("Please enter valid Email")
+                return false;
+            }
+            const phonenopattern=/^\d{10}$/;
+            const isphoneno=phonenopattern.test(phneno)
+            if(isphoneno==false){
+                alert("Please enter valid Phone Number")
+                return false;
+            }
+
+            if(msg==""){
+                alert("Please enter a Message")
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>
